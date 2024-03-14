@@ -36,7 +36,7 @@ export class PostsController {
 
   // 3) POST /posts
   // 새로운 포스트를 생성한다.
-  @Post()
+  @Post() 
   @UseGuards(AccessTokenGuard)
   postPosts(
     @User('id') userId: number,
