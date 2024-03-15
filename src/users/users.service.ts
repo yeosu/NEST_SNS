@@ -39,9 +39,9 @@ export class UsersService {
             password: user.password,
         });
 
-        const newUser = this.usersRepository.save(userObj);
+        const joinUser = this.usersRepository.save(userObj);
 
-        return newUser;
+        return joinUser;
     }
 
     async getAllUsers() {
