@@ -35,8 +35,8 @@ export class PostsController {
   }
 
   // 3) POST /posts
-  // 새로운 포스트를 생성한다.
-  @Post() 
+  // 새로운 포스트를 생성
+  @Post()
   @UseGuards(AccessTokenGuard)
   postPosts(
     @User('id') userId: number,
@@ -46,7 +46,7 @@ export class PostsController {
   }
 
   // 4) PUT /posts/:id
-  // id에 해당하는 포스트를 수정한다.
+  // id에 해당하는 포스트를 수정
   @Patch(':id')
   patchPost(
     @Param('id', ParseIntPipe) id: number,
@@ -58,7 +58,7 @@ export class PostsController {
   }
 
   // 5) DELETE /posts/:id
-  // id에 해당하는 포스트를 삭제한다.
+  // id에 해당하는 포스트를 삭제
   @Delete(':id')
   deletePost(@Param('id', ParseIntPipe) id: number) {
     return this.postsService.deletePost(id);
