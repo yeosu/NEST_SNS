@@ -9,6 +9,7 @@ import { RegisterUserDto } from './dto/register-user.dto';
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
+  // 1) POST /auth/token/access
   @Post('token/access')
   @UseGuards(RefreshTokenGuard)
   postTokenAccess(@Headers('authorization') rawToken: string){
@@ -23,6 +24,7 @@ export class AuthController {
     }
   }
 
+  // 2) POST /auth/token/refresh
   @Post('token/refresh')
   @UseGuards(RefreshTokenGuard)
   postTokenRefresh(@Headers('authorization') rawToken: string){
@@ -37,6 +39,7 @@ export class AuthController {
     }
   }
 
+  // 3) POST /auth/login/email
   @Post('login/email')
   @UseGuards(BasicTokenGuard)
   postLoginEmail(
