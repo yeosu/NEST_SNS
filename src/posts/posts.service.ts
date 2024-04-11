@@ -20,12 +20,14 @@ export class PostsService {
       private readonly postsRepository: Repository<PostsModel>,
     ) {}
 
+    // 1) GET /posts
     async getAllPosts() {
       return this.postsRepository.find({
         relations: ['author'],
       });
     }
 
+    // 2) GET /posts/:id
     async getPostById(id: number){
       const post = await this.postsRepository.findOne({
         where: {
@@ -41,6 +43,7 @@ export class PostsService {
       return post;
     }
 
+    // 3) POST /posts
     async createPost(authorId: number, postDto: CreatePostDto) {
       // 1) create -> 저장할 객체를 생성한다.
       // 2) save -> 저장할 객체를 저장한다. (create 메서드에서 생성한 객체로)
@@ -59,6 +62,7 @@ export class PostsService {
       return newPost;
     }
 
+    // 4) PUT /posts/:id
     async updatePost(postId: number, postDto: UpdatePostDto){
       // save의 기능
       // 1) 데이터가 존재하지 않는다면 (id기준으로) 새로 생성한다.
@@ -87,6 +91,7 @@ export class PostsService {
       return newPost;
     }
 
+    // 5) DELETE /posts/:id
     async deletePost(postId: number){
       const post = await this.postsRepository.findOne({
         where: {
