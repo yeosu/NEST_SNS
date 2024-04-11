@@ -2,6 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { PostsController } from './posts.controller';
 import { PostsService } from './posts.service';
 
+// Test.createTestingModule() 메서드를 사용하여 PostsController를 테스트하는 모듈을 생성
 describe('PostsController', () => {
   let controller: PostsController;
 
