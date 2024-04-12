@@ -31,7 +31,6 @@ export class PostsController {
   // id에 해당하는 포스트를 가져온다.
   @Get(':id')
   getPost(@Param('id', ParseIntPipe) id: number) {
-    console.log(id);
     return this.postsService.getPostById(id);
   }
 
@@ -43,7 +42,6 @@ export class PostsController {
     @User('id') userId: number,
     @Body() body: CreatePostDto
   ) {
-    console.log(userId);
     return this.postsService.createPost(userId, body);
   }
 
