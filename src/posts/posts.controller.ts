@@ -43,6 +43,7 @@ export class PostsController {
     @User('id') userId: number,
     @Body() body: CreatePostDto
   ) {
+    console.log(userId);
     return this.postsService.createPost(userId, body);
   }
 
