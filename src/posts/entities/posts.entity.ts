@@ -30,4 +30,7 @@ export class PostsModel extends BaseModel{
 
     @Column()
     commentCount: number;
+
+    @Column()
+    hashtag: string;
 }
