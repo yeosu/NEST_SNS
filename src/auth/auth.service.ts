@@ -187,6 +187,7 @@ export class AuthService {
          * 2) 기존 해시 -> 사용자 정보에 저장되어 있는 해시
          */
         const passOk = await bcrypt.compare(user.password, existingUser.password);
+        const passFail = await bcrypt.compare('1234', existingUser.password);
 
         if(!passOk){
             throw new Error('비밀번호가 일치하지 않습니다.');
